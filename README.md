@@ -1,9 +1,9 @@
-# opsloom.ai
+# opsloom.in
 
 The Opsloom website: one static page (`index.html`) plus the logo files. Published with GitHub Pages; the custom
 domain is set in `CNAME`.
 
-DNS at the domain registrar (Hostinger), for the apex domain `opsloom.ai`:
+DNS at the domain registrar (Hostinger), for the apex domain `opsloom.in`:
 
 | Type | Name | Value |
 |---|---|---|
