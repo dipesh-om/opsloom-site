@@ -133,6 +133,12 @@
     .sig { margin-top: 18px; font-weight: 600; }
     .sig span { display: block; font-weight: 400; color: var(--muted); font-size: .95rem; }
 
+    .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media (max-width: 900px) { .shots { grid-template-columns: 1fr; } }
+    .shot { margin: 0; }
+    .shot img { width: 100%; height: auto; display: block; border-radius: 12px; border: 1px solid var(--line); box-shadow: var(--shadow); }
+    .shot figcaption { margin-top: 10px; font-size: .95rem; color: var(--muted); }
+    .shot figcaption b { color: var(--ink); font-weight: 600; }
     .ask { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: center; }
     @media (max-width: 900px) { .ask { grid-template-columns: 1fr; } }
     .soon { display: inline-block; font-size: .75rem; font-weight: 600; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--marigold); color: var(--marigold-ink); margin-bottom: 12px; }
@@ -170,6 +176,7 @@
     <a class="brand" href="#top" aria-label="Opsloom home"><img src="logo.svg" alt="">opsloom</a>
     <nav class="nav-links" aria-label="Main">
       <a href="#how">How it works</a>
+      <a href="#product">Product</a>
       <a href="#trust">Why trust it</a>
       <a href="#fleets">Fleets</a>
       <a class="btn btn-primary" href="mailto:dipeshkumargupta2@gmail.com?subject=Opsloom%20call">Talk to us</a>
@@ -280,8 +287,37 @@
     </div>
   </section>
 
+  <!-- PRODUCT -->
+  <section id="product" class="alt" aria-labelledby="product-h">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">See it working</div>
+        <h2 id="product-h">The real product, on a demo environment.</h2>
+        <p class="muted">Screens from a fleet operator's demo workspace on Opsloom. All the data is made up.</p>
+      </div>
+      <div class="shots">
+        <figure class="shot">
+          <a href="img/product-checks.jpg" target="_blank" rel="noopener" aria-label="Open full size"><img src="img/product-checks.jpg" alt="A new driver form refusing a driver ID in the wrong format" width="1760" height="937" loading="lazy"></a>
+          <figcaption><b>Checks before saving.</b> A wrong ID format, a duplicate phone number or an action outside your cities is refused.</figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="img/product-handover.jpg" target="_blank" rel="noopener" aria-label="Open full size"><img src="img/product-handover.jpg" alt="A vehicle handover record with its full activity trail" width="1760" height="937" loading="lazy"></a>
+          <figcaption><b>Every step on record.</b> Who approved, who handed the car over, odometer, fuel and time.</figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="img/product-workflow.jpg" target="_blank" rel="noopener" aria-label="Open full size"><img src="img/product-workflow.jpg" alt="The vehicle-assign workflow shown as a diagram of states and steps" width="1760" height="937" loading="lazy"></a>
+          <figcaption><b>Workflows are configuration.</b> Every state, step and rule, visible and versioned.</figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="img/product-dry-run.jpg" target="_blank" rel="noopener" aria-label="Open full size"><img src="img/product-dry-run.jpg" alt="A dry run of a workflow step showing which stage would refuse it" width="1760" height="937" loading="lazy"></a>
+          <figcaption><b>Test before it goes live.</b> A dry run shows exactly which check would refuse a step. Nothing is saved.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <!-- TRUST -->
-  <section id="trust" class="alt" aria-labelledby="trust-h">
+  <section id="trust" aria-labelledby="trust-h">
     <div class="wrap">
       <div class="section-head">
         <div class="eyebrow">Why you can trust it</div>
@@ -314,7 +350,7 @@
   </section>
 
   <!-- USES -->
-  <section id="fleets" aria-labelledby="uses-h">
+  <section id="fleets" class="alt" aria-labelledby="uses-h">
     <div class="wrap">
       <div class="section-head">
         <div class="eyebrow">Who it's for</div>
