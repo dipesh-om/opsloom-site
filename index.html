@@ -9,7 +9,14 @@
   <meta property="og:description" content="AI builds your operations system. Every change is tested, replayed on past data, and approved before it goes live.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://opsloom.in/">
+  <link rel="canonical" href="https://opsloom.in/">
+  <meta property="og:image" content="https://opsloom.in/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#1E2A5E">
   <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -144,6 +151,31 @@
     .sig { margin-top: 18px; font-weight: 600; }
     .sig span { display: block; font-weight: 400; color: var(--muted); font-size: .95rem; }
 
+    .ask { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: center; }
+    @media (max-width: 900px) { .ask { grid-template-columns: 1fr; } }
+    .soon { display: inline-block; font-size: .75rem; font-weight: 600; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--marigold); color: var(--marigold-ink); margin-bottom: 12px; }
+    .chat { padding: 22px; display: grid; gap: 14px; }
+    .bubble { padding: 14px 16px; border-radius: 14px; font-size: .97rem; max-width: 92%; }
+    .bubble small { display: block; font-size: .75rem; color: var(--muted); margin-bottom: 4px; font-weight: 600; letter-spacing: .02em; }
+    .from-user { background: color-mix(in srgb, var(--indigo) 9%, var(--surface)); justify-self: end; }
+    .from-ai { background: var(--bg); border: 1px solid var(--line); }
+    .diff { font: 500 .85rem/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; margin-top: 8px; }
+    .diff .del { color: #B42318; } .diff .add { color: var(--ok); }
+    @media (prefers-color-scheme: dark) { .diff .del { color: #F97066; } }
+    .ticks { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 6px; font-size: .9rem; }
+    .ticks li { display: flex; gap: 8px; align-items: center; }
+    .ticks li::before { content: ""; width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--line); flex: none; }
+    .ticks li.done::before { background: var(--ok); border-color: var(--ok); box-shadow: inset 0 0 0 3px var(--bg); }
+    .ticks li.wait::before { border-color: var(--marigold); }
+    @media (prefers-reduced-motion: no-preference) {
+      .chat > * { opacity: 0; animation: rise .5s ease-out forwards; }
+      .chat > *:nth-child(1) { animation-delay: .2s; } .chat > *:nth-child(2) { animation-delay: 1s; } .chat > *:nth-child(3) { animation-delay: 1.8s; }
+      @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    }
+    .person { display: flex; gap: 16px; align-items: center; margin-top: 22px; }
+    .avatar { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--indigo); color: #fff; font: 700 1.1rem/1 "Space Grotesk", sans-serif; flex: none; }
+    .person .sig { margin: 0; }
+    .person a { font-size: .95rem; }
     .final { text-align: center; padding: 88px 0; }
     .final .lead { margin: 0 auto 28px; }
     footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); font-size: .9rem; }
@@ -342,6 +374,31 @@
     </div>
   </section>
 
+  <!-- ASK FOR A CHANGE (next) -->
+  <section aria-labelledby="ask-h">
+    <div class="wrap ask">
+      <div>
+        <span class="soon">Coming next</span>
+        <h2 id="ask-h">Ask for a change in plain words.</h2>
+        <p class="muted">Today, our AI agents build and change your system with an engineer in the loop. Next, your ops team asks directly. The AI drafts the change, and it goes through exactly the same checks before anyone can approve it.</p>
+      </div>
+      <figure class="card chat" aria-label="Illustration: an ops manager asks for a change and the AI drafts it">
+        <div class="bubble from-user"><small>Ops manager</small>Waive the late-return penalty if the car was in the workshop that day.</div>
+        <div class="bubble from-ai"><small>Opsloom AI · draft</small>Updated the late-return penalty rule:
+          <div class="diff"><span class="del">- charge if returned after 10:00</span><br><span class="add">+ charge if returned after 10:00 and the car had no open workshop ticket</span></div>
+        </div>
+        <div class="bubble from-ai"><small>Checks</small>
+          <ul class="ticks">
+            <li class="done">Rule tests pass, including 2 new ones</li>
+            <li class="done">Replay on past data: 14 penalties would have been waived</li>
+            <li class="wait">Waiting for a second approver</li>
+          </ul>
+        </div>
+        <figcaption class="caption">Illustration of the next step, with made-up data.</figcaption>
+      </figure>
+    </div>
+  </section>
+
   <!-- FOUNDER -->
   <section class="alt" aria-labelledby="founder-h">
     <div class="wrap founder">
@@ -354,7 +411,13 @@
           <p>"I lead tech at a 5,000-car fleet operator. Every week I see the same thing: the rules that pay our drivers are stuck in old code, every change takes too long, and a mistake means someone gets paid wrong.</p>
           <p>AI can now build software in days. What's missing is trust. Opsloom is the platform where AI builds your operations, and every change is checked before it goes live."</p>
         </blockquote>
-        <div class="sig">Dipesh Kumar Gupta<span>Founder · ex-BYJU'S, Saathi</span></div>
+        <div class="person">
+          <div class="avatar" aria-hidden="true">DG</div>
+          <div>
+            <div class="sig">Dipesh Kumar Gupta<span>Founder. Led the class-booking team at BYJU'S (200,000 daily students) and built Saathi's platform from zero to 20,000 daily users.</span></div>
+            <a href="https://www.linkedin.com/in/dipesh-kumar-gupta-049a2114a/" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -373,7 +436,7 @@
   <div class="wrap foot">
     <a class="brand" href="#top" aria-label="Opsloom home"><img src="logo.svg" alt="">opsloom</a>
     <div>Delhi NCR, India · <a href="mailto:dipeshkumargupta2@gmail.com">dipeshkumargupta2@gmail.com</a></div>
-    <div>© 2026 Opsloom</div>
+    <div><a href="privacy.html">Privacy</a> · © 2026 Opsloom</div>
   </div>
 </footer>
 
