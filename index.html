@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
   <title>Opsloom: operations software, woven by AI</title>
   <meta name="description" content="Opsloom is an operations platform where AI agents build and change your workflows, forms, approvals and money rules. Every change is tested, replayed on past data, and approved before it goes live.">
   <meta property="og:title" content="Opsloom: operations software, woven by AI">
@@ -37,20 +38,6 @@
       --radius: 14px;
       --shadow: 0 1px 2px rgba(22,27,46,.06), 0 8px 24px rgba(22,27,46,.08);
     }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0E1226;
-        --surface: #161C38;
-        --ink: #EEF0F8;
-        --muted: #A9B0CC;
-        --line: #2A3258;
-        --thread: #6F7DBA;
-        --marigold-ink: #F4A93B;
-        --ok: #5CC995;
-        --warn: #F4C06B;
-        --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
-      }
-    }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
@@ -79,13 +66,11 @@
     .nav-links a { text-decoration: none; color: var(--muted); font-weight: 500; font-size: .95rem; }
     .nav-links a:hover { color: var(--ink); }
     .nav-links a.btn-primary { color: #fff; padding: 9px 16px; min-height: 40px; }
-    @media (prefers-color-scheme: dark) { .nav-links a.btn-primary { color: #1A1300; } }
     @media (max-width: 720px) { .nav-links a:not(.btn) { display: none; } }
 
     .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; font-weight: 600; text-decoration: none; border: 1.5px solid transparent; min-height: 44px; }
     .btn-primary { background: var(--indigo); color: #fff; }
     .btn-primary:hover { background: var(--indigo-2); }
-    @media (prefers-color-scheme: dark) { .btn-primary { background: var(--marigold); color: #1A1300; } .btn-primary:hover { background: #F7BC63; } }
     .btn-ghost { border-color: var(--line); color: var(--ink); background: transparent; }
     .btn-ghost:hover { border-color: var(--thread); }
 
@@ -125,9 +110,7 @@
     .tile { padding: 24px; }
     .tile p { color: var(--muted); margin: 0; }
     .icon { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; background: color-mix(in srgb, var(--indigo) 10%, transparent); margin-bottom: 14px; }
-    @media (prefers-color-scheme: dark) { .icon { background: color-mix(in srgb, var(--thread) 18%, transparent); } }
     .icon svg { width: 22px; height: 22px; stroke: var(--indigo); }
-    @media (prefers-color-scheme: dark) { .icon svg { stroke: var(--thread); } }
 
     .steps { counter-reset: step; }
     .step { padding: 24px; position: relative; }
@@ -142,7 +125,6 @@
     .use ul { margin: 12px 0 0; padding-left: 1.1em; color: var(--muted); }
     .use li { margin: 4px 0; }
     .tag { display: inline-block; font-size: .75rem; font-weight: 600; padding: 3px 9px; border-radius: 999px; background: var(--indigo); color: #fff; margin-bottom: 10px; }
-    @media (prefers-color-scheme: dark) { .tag { background: var(--marigold); color: #1A1300; } }
 
     .founder { display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; align-items: start; }
     @media (max-width: 900px) { .founder { grid-template-columns: 1fr; } }
@@ -161,7 +143,6 @@
     .from-ai { background: var(--bg); border: 1px solid var(--line); }
     .diff { font: 500 .85rem/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; margin-top: 8px; }
     .diff .del { color: #B42318; } .diff .add { color: var(--ok); }
-    @media (prefers-color-scheme: dark) { .diff .del { color: #F97066; } }
     .ticks { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 6px; font-size: .9rem; }
     .ticks li { display: flex; gap: 8px; align-items: center; }
     .ticks li::before { content: ""; width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--line); flex: none; }
